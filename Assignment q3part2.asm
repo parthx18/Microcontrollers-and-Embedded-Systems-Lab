@@ -1,0 +1,8 @@
+;Indirect Addressing
+ORG 0000H
+MOV 30H, #40H
+MOV 40H, #99H
+MOV R0, 30H
+MOV A, @R0
+HERE: SJMP HERE
+END
