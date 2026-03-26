@@ -1,0 +1,41 @@
+;Clockwise 
+ORG 0000H
+    MOV P3, #00H
+MAIN:
+    SETB P3.0
+    CLR P3.1
+    ACALL DELAY
+    SETB P3.1
+    CLR P3.0
+    ACALL DELAY
+    SJMP MAIN
+DELAY:
+    MOV R7, #255
+D1: 
+    MOV R6, #255
+D2: 
+    DJNZ R6, D2
+    DJNZ R7, D1
+    RET
+END
+
+;Anticlockwise
+ORG 0000H         
+    MOV P3, #00H   
+MAIN:
+    SETB P3.1      
+    CLR P3.0       
+    ACALL DELAY    
+    SETB P3.0      
+    CLR P3.1       
+    ACALL DELAY    
+    SJMP MAIN      
+DELAY:
+    MOV R7, #255   
+D1: 
+    MOV R6, #255   
+D2: 
+    DJNZ R6, D2    
+    DJNZ R7, D1    
+    RET            
+END
